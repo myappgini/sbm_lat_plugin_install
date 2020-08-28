@@ -74,11 +74,7 @@ $dest_class = $path . '/LAT/config.json';
 $lat_class->copy_file($source_class, $dest_class, true);
 
 $extra_function = false;
-$code = '
-<?php
-include(dirname(__FILE__) . "/../LAT/setup_lat.php");
-?>
-';
+$code = '<?php include(dirname(__FILE__) . "/../LAT/setup_lat.php");?>';
 $file_path = "$path/hooks/__global.php";
 $res = $lat_class->add_to_file($file_path, $extra_function, $code);
 inspect_result($res, $file_path, $lat_class);
@@ -91,12 +87,7 @@ $files = [
 	'home' => ['home', "false"]
 ];
 foreach ($files as $fn => $call) {
-	$code = '
-		<?php
-			//enable Landini Admin Template
-			if (activate_LAT("' . $call[0] . '",$x,' . $call[1] . ')) return;
-		?>
-		';
+	$code = '<?php if (activate_LAT("' . $call[0] . '",$x,' . $call[1] . ')) return; ?>';
 	$file_path = $path . "/$fn.php";
 	$res = $lat_class->add_to_file($file_path, $extra_function, $code);
 
