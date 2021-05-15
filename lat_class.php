@@ -1,5 +1,5 @@
 <?php
-	include(dirname(__FILE__).'/../plugins-resources/loader.php');
+	include(dirname(__FILE__).'loader.php');
 
 	class lat_class extends AppGiniPlugin{
 		/* add any plugin-specific properties here */
